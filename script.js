@@ -20,14 +20,24 @@ var swiper = new Swiper(".swiper", {
   },
 });
 
-window.onscroll = function () {
-  var header = document.querySelector(".header-top");
-  if (window.scrollY > 0) {
-    header.classList.add("sticky");
+
+
+window.addEventListener("scroll", function () {
+  let header = document.querySelector(".header-top");
+  if (window.scrollY > 50) { 
+    header.style.position = "fixed";
+    header.style.top = "0";
+    header.style.width = "100%";
+    header.style.background = "#fff";
+    header.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)"; 
   } else {
-    header.classList.remove("sticky");
+    header.style.position = "relative";
+    header.style.boxShadow = "none";
   }
-};
+});
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const menu = document.getElementById("side-menu");
